@@ -44,7 +44,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
 		http.cors();
-		http.csrf().disable().authorizeRequests().antMatchers("/authenticate", "/createNewUser").permitAll()
+		http.csrf().disable().authorizeRequests().antMatchers("/authenticate", "/createNewUser","/createNewRole").permitAll()
 				.antMatchers(HttpHeaders.ALLOW).permitAll().anyRequest().authenticated().and().exceptionHandling()
 				.authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
